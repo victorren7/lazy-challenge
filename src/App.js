@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      {!isLoaded &&
+        <img
+          width='500'
+          style={{position: 'absolute'}}
+          src="https://urldefense.com/v3/__https:/forge-homework.s3.amazonaws.com/thumb.jpg__;!!KLCbKzk!2X9AQ7upNKFRgbu3u9eVA5PMYwFE_pebGqKAdBdCp3K7aNksynsOv6oJ8VkY7phs$"
         >
-          Learn React
-        </a>
-      </header>
+        </img>
+      }
+        <img
+          width='500'
+          style={{position: 'absolute'}}
+          onLoad={() => setIsLoaded(true)}
+          loading='lazy'
+          src='https://urldefense.com/v3/__https:/forge-homework.s3.amazonaws.com/fullsize.jpg__;!!KLCbKzk!2X9AQ7upNKFRgbu3u9eVA5PMYwFE_pebGqKAdBdCp3K7aNksynsOv6oJ8VdeJfC7$'
+          />
     </div>
   );
 }
